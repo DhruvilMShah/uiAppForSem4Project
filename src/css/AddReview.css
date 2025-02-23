@@ -1,0 +1,105 @@
+.star-rating {
+    display: flex;
+    gap: 5px;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  
+  .star {
+    color: #ccc;
+    transition: color 0.2s ease-in-out;
+  }
+  
+  .star.filled {
+    color: gold;
+  }
+  
+  .star:hover {
+    color: gold;
+  }
+  
+  /* Other Styles */
+  .popup-form {
+    width: 400px;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+  }
+  
+  .popup-form h2 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+  
+  .popup-form form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .popup-form label {
+    font-weight: 600;
+    margin-top: 10px;
+    display: block;
+  }
+  
+  .popup-form input,
+  .popup-form textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  
+  .popup-form textarea {
+    height: 80px;
+    resize: vertical;
+  }
+  
+  .popup-form input[type="checkbox"] {
+    width: auto;
+    margin-right: 5px;
+  }
+  
+  .form-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+  }
+  
+  .popup-form button {
+    width: 48%;
+    padding: 8px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+  }
+  
+  .popup-form button[type="submit"] {
+    background: #28a745;
+    color: white;
+  }
+  
+  .popup-form button[type="submit"]:hover {
+    background: #218838;
+  }
+  
+  .popup-form button[type="button"] {
+    background: #dc3545;
+    color: white;
+  }
+  
+  .popup-form button[type="button"]:hover {
+    background: #c82333;
+  }
+  
