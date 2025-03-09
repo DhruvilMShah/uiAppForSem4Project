@@ -14,6 +14,9 @@ const Navbar = () => {
         <Link to="/add-achievement" className="nav-option">Add Achievement</Link>
         <Link to="/reviews" className="nav-option">User Reviews</Link>
         <Link to="/add-review" className="nav-option">Tell us how you find the platform!</Link>
+        <Link to="/create-report" className="nav-option">Create Report</Link>
+        <Link to="/reports" className="nav-option">Your Reports</Link>
+
       </div>
     </nav>
   );

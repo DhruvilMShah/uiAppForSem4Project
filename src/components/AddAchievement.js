@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../css/AddAchievement.css";
-import { BASE_URL } from "../config.js";
+import { BASE_URL, USER_EMAIL } from "../config.js";
 
 const AddAchievement = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
-    email: "john.doe@example.com",
+    email: `${USER_EMAIL}`,
     fromDate: "",
     toDate: "",
     description: "",

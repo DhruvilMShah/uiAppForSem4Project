@@ -5,6 +5,8 @@ import AddAchievement from "./components/AddAchievement";
 import ReviewPage from "./components/ReviewPage";
 import AddReview from "./components/AddReview";
 import Navbar from "./components/Navbar";
+import Reports from "./components/Reports";
+import CreateReport from "./components/CreateReport";
 
 function App() {
   return (
@@ -17,6 +19,10 @@ function App() {
           <Route path="/add-achievement" element={<AddAchievement />} />
           <Route path="/reviews" element={<ReviewPage />} />
           <Route path="/add-review" element={<AddReview />} />
+          <Route path="/reports" element={<Reports />} />
+          <Route path="/create-report" element={<CreateReport />} />
+
+
         </Routes>
       </div>
     </Router>

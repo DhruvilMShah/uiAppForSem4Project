@@ -1,9 +1,9 @@
 import axios from 'axios';
-import { BASE_URL } from "../config.js";
+import { BASE_URL, USER_EMAIL } from "../config.js";
 
 export const getAchievements = async () => {
   try {
-    const response = await axios.get(`${BASE_URL}/user/john.doe@example.com`);
+    const response = await axios.get(`${BASE_URL}/user/${USER_EMAIL}`);
     console.log(response);
     return response.data;
   } catch (error) {

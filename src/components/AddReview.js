@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../css/AddReview.css";
-import { BASE_URL } from "../config.js";
+import { BASE_URL, USER_EMAIL } from "../config.js";
 
 const AddReview = () => {
   const [reviewData, setReviewData] = useState({
@@ -28,7 +28,7 @@ const AddReview = () => {
     e.preventDefault();
     const reviewToSend = {
       ...reviewData,
-      email: reviewData.anonymity ? null : "john.doe@example.com",
+      email: reviewData.anonymity ? null : `${USER_EMAIL}`,
     };
 
     try {
