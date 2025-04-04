@@ -1,0 +1,38 @@
+.user-search-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+}
+
+.user-search-input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+}
+
+.user-search-suggestions {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    border: 1px solid #ccc;
+    border-top: none;
+    max-height: 150px;
+    overflow-y: auto;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.user-search-suggestions li {
+    padding: 8px;
+    cursor: pointer;
+}
+
+.user-search-suggestions li:hover {
+    background: #f0f0f0;
+}

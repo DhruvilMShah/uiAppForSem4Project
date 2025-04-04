@@ -17,15 +17,34 @@ const Reports = () => {
     <div className="reports-container">
       <h2>Your Reports</h2>
       <ul>
-        {reports.map((report, index) => (
-          <li key={index} className="report-item">
-            <strong>File Path:</strong> {report.filePath} <br />
-            <strong>Requested Date:</strong> {report.requestedDate}
-          </li>
-        ))}
+        {reports.map((report, index) => {
+          // Extract filename from filePath
+          var fileName = ""
+          if(report.status == "SUCCESSFUL") {
+            fileName = report.filePath.split("/").pop();
+          }
+          else {
+            fileName = "";
+          }
+          
+  
+          return (
+            <li key={index} className="report-item">
+              <strong>Status:</strong> {report.status} <br />
+              <strong>File Path:</strong> 
+              <a href={report.filePath} target="_blank" rel="noopener noreferrer">
+                {fileName} {/* Show only the filename instead of full path */}
+              </a> 
+              <br />
+              
+              <strong>Requested Date:</strong> {report.requestedDate}
+            </li>
+          );
+        })}
       </ul>
     </div>
   );
+  
 };
 
 export default Reports;

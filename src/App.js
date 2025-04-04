@@ -7,6 +7,7 @@ import AddReview from "./components/AddReview";
 import Navbar from "./components/Navbar";
 import Reports from "./components/Reports";
 import CreateReport from "./components/CreateReport";
+import { USER_EMAIL } from "./config.js";
 
 function App() {
   return (
@@ -14,15 +15,13 @@ function App() {
       <Navbar /> {/* Navbar is always visible */}
       <div className="p-4">
         <Routes>
-          <Route path="/" element={<Navigate to="/achievements" replace />} />
-          <Route path="/achievements" element={<AchievementPage />} />
+          <Route path="/" element={<Navigate to={`/achievements/${USER_EMAIL}`} replace />} />
+          <Route path="/achievements/:email" element={<AchievementPage />} />
           <Route path="/add-achievement" element={<AddAchievement />} />
           <Route path="/reviews" element={<ReviewPage />} />
           <Route path="/add-review" element={<AddReview />} />
           <Route path="/reports" element={<Reports />} />
           <Route path="/create-report" element={<CreateReport />} />
-
-
         </Routes>
       </div>
     </Router>
