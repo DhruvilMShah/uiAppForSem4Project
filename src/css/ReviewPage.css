@@ -1,0 +1,70 @@
+/* ReviewPage.css */
+/* .review-page {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  } */
+  
+  .filter-and-count {
+    display: flex;
+    justify-content: space-between; /* Align filter icon left, review count right */
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .filter-container {
+    position: relative; /* For absolute positioning of rating panel */
+    display: flex;
+    align-items: center;
+  }
+  
+  .filter-icon {
+    font-size: 20px;
+    color: #555;
+    cursor: pointer;
+    margin-left: 8px;
+  }
+  
+  .filter-icon:hover {
+    color: #000; /* Hover effect */
+  }
+  
+  .rating-panel {
+    position: absolute;
+    top: 0; /* Align with filter icon */
+    left: 30px; /* Position to the right of the icon */
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    z-index: 10; /* Ensure panel is above other content */
+    min-width: 150px; /* Ensure enough space for options */
+  }
+  
+  .rating-checkboxes {
+    display: flex;
+    flex-direction: column; /* Stack checkboxes vertically */
+    gap: 8px; /* Space between checkboxes */
+  }
+  
+  .checkbox-label {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  
+  .checkbox-label input {
+    margin-right: 8px;
+  }
+  
+  .review-count {
+    font-size: 14px;
+    color: #555;
+    margin-right: 8px;
+  }
+  
+  h2 {
+    margin-bottom: 20px;
+  }

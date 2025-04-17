@@ -45,7 +45,7 @@ const AddAchievement = () => {
 
       if (response.ok) {
         alert("Achievement added successfully!");
-        navigate("/achievements");
+        navigate(`/achievements/${USER_EMAIL}`);
       } else {
         alert("Error adding achievement");
       }

@@ -20,7 +20,7 @@ const Reports = () => {
         {reports.map((report, index) => {
           // Extract filename from filePath
           var fileName = ""
-          if(report.status == "SUCCESSFUL") {
+          if(report.status === "SUCCESSFUL") {
             fileName = report.filePath.split("/").pop();
           }
           else {

@@ -1,7 +1,7 @@
 // AchievementsPage.js
 import React, { useEffect, useState } from 'react';
 import { useParams } from "react-router-dom";
-import { getAchievements, addAchievement } from '../services/apiService';
+import { getAchievements } from '../services/apiService';
 import AchievementList from './AchievementList';
 //import './AchievementsPage.css';
 
@@ -29,20 +29,6 @@ const AchievementsPage = () => {
     
   }, [email]);
 
-  const handleAddAchievement = async () => {
-    const newAchievement = {
-      title: 'New Achievement',
-      description: 'This is a new achievement',
-      created: new Date().toISOString(),
-    };
-
-    try {
-      const addedAchievement = await addAchievement(newAchievement);
-      setAchievements((prev) => [...prev, addedAchievement]);
-    } catch (error) {
-      console.error('Failed to add achievement:', error);
-    }
-  };
 
   return (
     <div className="achievements-page">

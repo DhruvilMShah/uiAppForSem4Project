@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { BASE_URL, USER_EMAIL } from "../config.js";
+import { BASE_URL } from "../config.js";
 export const getAchievements = async (email) => {
   try {
     const response = await axios.get(`${BASE_URL}/user/${email}`);
@@ -11,15 +11,6 @@ export const getAchievements = async (email) => {
   }
 };
 
-export const addAchievement = async (achievement) => {
-  try {
-    const response = await axios.post(`${BASE_URL}/achievements`, achievement);
-    return response.data;
-  } catch (error) {
-    console.error('Error adding achievement:', error);
-    throw error;
-  }
-};
 
 export const getReviews = async () => {
   try {
@@ -32,4 +23,14 @@ export const getReviews = async () => {
   }
   };
 
+  export const getReviewsByRating = async (rating) => {
+    try {
+      const response = await axios.get(`${BASE_URL}/reviews/rating/${rating}`);
+      console.log(response);
+      return response.data;
+    } catch (error) {
+      console.error('Error fetching reviews:', error);
+      throw error;
+    }
+    };
 // Add more functions for other API endpoints if needed
