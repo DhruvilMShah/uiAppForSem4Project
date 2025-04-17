@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { BASE_URL } from "../config.js";
+import { BASE_URL, USER_EMAIL } from "../config.js";
 export const getAchievements = async (email) => {
   try {
     const response = await axios.get(`${BASE_URL}/user/${email}`);
@@ -23,14 +23,30 @@ export const getReviews = async () => {
   }
   };
 
-  export const getReviewsByRating = async (rating) => {
-    try {
-      const response = await axios.get(`${BASE_URL}/reviews/rating/${rating}`);
-      console.log(response);
-      return response.data;
-    } catch (error) {
-      console.error('Error fetching reviews:', error);
-      throw error;
-    }
-    };
-// Add more functions for other API endpoints if needed
+export const getReviewsByRating = async (rating) => {
+  try {
+    const response = await axios.get(`${BASE_URL}/reviews/rating/${rating}`);
+    console.log(response);
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching reviews:', error);
+    throw error;
+  }
+};
+
+export const deleteAchievement = async (id) => {
+  console.log(`Deleting achievement id: ${id}`);
+  const response = await axios.delete(`${BASE_URL}/achievement`, {
+    data: {
+      achievementId: id,
+    },
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+  return response.data;
+};
+
+export const updateAchievement = (achievement) => {
+  return axios.patch(`${BASE_URL}/achievement`, achievement);
+};

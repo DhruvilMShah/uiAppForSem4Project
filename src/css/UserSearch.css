@@ -2,14 +2,16 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    width: 300px;
+    width: 350px; /* Slightly wider for nav context */
+    margin-left: 10px; /* Optional spacing from other nav elements */
 }
 
 .user-search-input {
     width: 100%;
-    padding: 8px;
+    padding: 10px 12px; /* Increase padding for height and balance */
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 6px;
+    font-size: 15px; /* Slight bump for readability */
     outline: none;
 }
 

@@ -1,34 +1,38 @@
 /* ReviewCard.css */
 .review-card {
-    background-color: #ffffff;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    padding: 16px;
-    margin: 10px 0;
-    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease-in-out;
-  }
-  
-  .review-card:hover {
-    transform: scale(1.02);
-  }
-  
-  .review-card h3 {
-    font-size: 18px;
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 8px;
-  }
-  
-  .review-card p {
-    font-size: 14px;
-    color: #555;
-    margin: 4px 0;
-  }
-  
-  .review-card .text-gray-700 {
-    font-size: 13px;
-    font-style: italic;
-    color: #777;
-  }
-  
+  background-color: #ffffff; /* White background */
+  border: 1px solid #e0e0e0; /* Light border for subtle separation */
+  border-radius: 8px;
+  padding: 20px; /* Increased padding for better spacing */
+  margin: 12px 0; /* More margin to give some breathing space */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for elevation */
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Smooth hover effects */
+}
+
+/* Hover effect */
+.review-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15); /* Slightly stronger shadow on hover */
+}
+
+/* Title */
+.review-card h3 {
+  font-size: 20px; /* Slightly larger font size for emphasis */
+  font-weight: 600; /* Semi-bold for a professional look */
+  color: #333; /* Standard dark text */
+  margin-bottom: 12px; /* Space between title and content */
+}
+
+/* Content text */
+.review-card p {
+  font-size: 15px; /* Slightly larger for better readability */
+  color: #555; /* Slightly lighter gray for normal text */
+  margin: 6px 0; /* Adequate margin between paragraphs */
+}
+
+/* Subtle gray text (e.g., for date or footer information) */
+.review-card .text-gray-700 {
+  font-size: 13px;
+  font-style: italic; /* Italics for secondary text */
+  color: #888; /* A slightly lighter gray for secondary text */
+}

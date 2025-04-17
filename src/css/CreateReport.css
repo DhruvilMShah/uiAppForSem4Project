@@ -1,69 +1,80 @@
 /* CreateReport.css */
 
-/* Style for the create report container */
+/* Container for creating a report */
 .create-report-container {
   max-width: 500px;
   margin: 20px auto;
-  padding: 15px;
-  background: #f8f9fa;
+  padding: 20px;
+  background: #ffffff;
   border-radius: 8px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e0e0e0;
+}
+
+/* Form labels */
+.create-report-container label {
+  display: block;
+  font-weight: 600;
+  margin-top: 12px;
+  margin-bottom: 6px;
+  color: #333;
+  font-size: 14px;
 }
 
 /* Dropdown styling */
 .report-dropdown {
   width: 100%;
-  padding: 8px;
-  margin-top: 5px;
+  padding: 10px;
   border-radius: 4px;
   border: 1px solid #ccc;
-  background-color: #fff;
+  background-color: #fdfdfd;
+  font-size: 14px;
+  transition: border-color 0.3s;
+}
+
+.report-dropdown:focus {
+  border-color: #007bff;
+  outline: none;
 }
 
 /* Button container */
 .button-group {
   display: flex;
   justify-content: space-between;
-  margin-top: 15px;
+  margin-top: 20px;
+  gap: 10px;
 }
 
 /* Create button */
 .report-btn {
-  background-color: #4CAF50;
+  background-color: #007bff;
   color: white;
-  padding: 10px 15px;
+  padding: 10px 16px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 15px;
   flex: 1;
-  margin-right: 10px;
+  transition: background-color 0.2s ease;
 }
 
 .report-btn:hover {
-  background-color: #45a049;
+  background-color: #0056b3;
 }
 
 /* Cancel button */
 .cancel-btn {
-  background-color: #ccc;
-  color: black;
-  padding: 10px 15px;
+  background-color: #e0e0e0;
+  color: #333;
+  padding: 10px 16px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 15px;
   flex: 1;
+  transition: background-color 0.2s ease;
 }
 
 .cancel-btn:hover {
   background-color: #b3b3b3;
-}
-
-/* Form labels */
-.create-report-container label {
-  display: block;
-  font-weight: bold;
-  margin-top: 10px;
-  color: #333;
 }

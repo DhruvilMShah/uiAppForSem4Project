@@ -1,82 +1,124 @@
 .add-achievement-container {
-    max-width: 500px;
-    margin: 40px auto;
-    padding: 20px;
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .add-achievement-title {
-    font-size: 22px;
-    font-weight: bold;
-    color: #333;
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  .add-achievement-form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-  }
-  
-  .input-field {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 14px;
-  }
-  
-  .evidence-field {
-    display: flex;
-    gap: 10px;
-  }
-  
-  .add-evidence-btn {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 8px 12px;
-    cursor: pointer;
-    font-size: 14px;
-    border-radius: 5px;
-  }
-  
-  .add-evidence-btn:hover {
-    background-color: #0056b3;
-  }
-  
-  .submit-btn {
-    background-color: #28a745;
-    color: white;
-    border: none;
-    padding: 10px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 5px;
-    font-weight: bold;
-    margin-top: 15px;
-  }
-  
-  .submit-btn:hover {
-    background-color: #218838;
-  }
-  
-  .cancel-btn {
-    background-color: #dc3545;
-    color: white;
-    border: none;
-    padding: 10px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 5px;
-    font-weight: bold;
-    margin-top: 10px;
-  }
-  
-  .cancel-btn:hover {
-    background-color: #c82333;
-  }
-  
+  max-width: 520px;
+  margin: 48px auto;
+  padding: 28px;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 6px 24px rgba(0, 64, 128, 0.08);
+}
+
+.add-achievement-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #1e3a8a; /* Deep brand blue */
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.add-achievement-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Input Fields */
+.input-field {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #cbd5e1; /* gray-300 */
+  border-radius: 8px;
+  font-size: 15px;
+  transition: border-color 0.2s ease;
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: #2563eb; /* blue-600 */
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+/* Evidence field row */
+.evidence-field {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+/* Buttons - Shared */
+.add-achievement-form button {
+  font-size: 15px;
+  font-weight: 500;
+  padding: 10px 16px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.25s ease, box-shadow 0.2s ease;
+}
+
+/* Add Evidence */
+.add-evidence-btn {
+  background-color: #2563eb; /* blue-600 */
+  color: white;
+}
+
+.add-evidence-btn:hover {
+  background-color: #1d4ed8;
+  box-shadow: 0 2px 6px rgba(37, 99, 235, 0.2);
+}
+
+/* Submit */
+.submit-btn {
+  background-color: #2563eb; /* blue-600 */
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.submit-btn:hover {
+  background-color: #1d4ed8;
+  box-shadow: 0 2px 6px rgba(37, 99, 235, 0.2);
+}
+
+/* Cancel */
+.cancel-btn {
+  background-color: #ef4444; /* red-500 */
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 10px 16px; /* Same padding as submit */
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.25s ease, box-shadow 0.2s ease;
+}
+
+.cancel-btn:hover {
+  background-color: #dc2626;
+  box-shadow: 0 2px 6px rgba(239, 68, 68, 0.2);
+}
+
+
+/* Modal Overlay */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+/* Modal Box */
+.modal-content {
+  background-color: #ffffff;
+  padding: 32px;
+  border-radius: 12px;
+  max-width: 640px;
+  width: 90%;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}

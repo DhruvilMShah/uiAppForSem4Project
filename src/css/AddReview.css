@@ -86,12 +86,12 @@
   }
   
   .popup-form button[type="submit"] {
-    background: #28a745;
+    background: #2563eb;
     color: white;
   }
   
   .popup-form button[type="submit"]:hover {
-    background: #218838;
+    background: #1d4ed8;
   }
   
   .popup-form button[type="button"] {

@@ -1,24 +1,29 @@
-/* Reports.css */
-
-/* Style for the reports container */
+/* Container for the reports section */
 .reports-container {
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: #fff;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-  }
-  
-  /* Style for the reports list */
-  .report-item {
-    border-bottom: 1px solid #ddd;
-    padding: 10px 0;
-    font-size: 16px;
-    color: #333;
-  }
-  
-  .report-item strong {
-    color: #555;
-  }
-  
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 24px 28px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+  border-radius: 12px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Individual report items */
+.report-item {
+  border-bottom: 1px solid #e2e8f0; /* slate-200 */
+  padding: 14px 0;
+  font-size: 16px;
+  color: #1e293b; /* slate-800 */
+  line-height: 1.6;
+}
+
+.report-item:last-child {
+  border-bottom: none;
+}
+
+/* Highlighted text in report */
+.report-item strong {
+  color: #2563eb; /* brand blue - blue-600 */
+  font-weight: 600;
+}

@@ -1,18 +1,38 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "../css/AddAchievement.css";
 import { BASE_URL, USER_EMAIL } from "../config.js";
 
-const AddAchievement = () => {
+const AddAchievement = ({ editData, onClose, refreshAchievements }) => {
   const navigate = useNavigate();
-  const [formData, setFormData] = useState({
-    email: `${USER_EMAIL}`,
-    fromDate: "",
-    toDate: "",
-    description: "",
-    category: "",
-    evidences: [""],
+  const [formData, setFormData] = useState(() => {
+    if (editData) {
+      console.log("Initial editData.toDate:", editData?.toDate);
+      return {
+        achievementId: editData.achievementId,
+        fromDate: editData.fromDate || "",
+        toDate: editData.toDate || "",
+        description: editData.description || "",
+        category: editData.category || "",
+        evidences: editData.evidences && editData.evidences.length > 0 ? editData.evidences : [""],
+      };
+    } else {
+      return {
+        email: `${USER_EMAIL}`, // only used for add
+        fromDate: "",
+        toDate: "",
+        description: "",
+        category: "",
+        evidences: [""],
+      };
+    }
   });
+  
+  
+  useEffect(() => {
+    console.log("Modal render check");
+  }, []);
+  
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -37,27 +57,36 @@ const AddAchievement = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(`${BASE_URL}/achievement`, {
-        method: "POST",
+      const url = `${BASE_URL}/achievement`;
+      const method = editData ? "PATCH" : "POST";
+      console.log("Submitting formData:", formData);
+
+  
+      const response = await fetch(url, {
+        method,
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
-
+  
       if (response.ok) {
-        alert("Achievement added successfully!");
+        alert(`Achievement ${editData ? "updated" : "added"} successfully!`);
+        if (refreshAchievements) refreshAchievements(); 
+        if (onClose) onClose();
         navigate(`/achievements/${USER_EMAIL}`);
       } else {
-        alert("Error adding achievement");
+        alert("Error saving achievement");
       }
     } catch (error) {
       console.error("Error:", error);
       alert("Failed to connect to backend");
     }
   };
+  
 
   return (
-    <div className="add-achievement-container">
-      <h2 className="add-achievement-title">Add Achievement</h2>
+    <div className="modal">
+      <div className="modal-content">
+        <h2 className="add-achievement-title">{editData ? "Edit Achievement" : "Add Achievement"}</h2>  
       <form onSubmit={handleSubmit} className="add-achievement-form">
         <label>
           From Date:
@@ -131,7 +160,17 @@ const AddAchievement = () => {
         </label>
 
         <div className="form-buttons">
-          <button type="button" onClick={() => navigate("/achievements")} className="cancel-btn">
+        <button
+            type="button"
+            onClick={() => {
+              if (onClose) {
+                onClose(); // Close modal in edit/add mode
+              } else {
+                navigate(`/achievements/${USER_EMAIL}`); // fallback
+              }
+            }}
+            className="cancel-btn"
+          >
             Cancel
           </button>
           <button type="submit" className="submit-btn">
@@ -139,6 +178,7 @@ const AddAchievement = () => {
           </button>
         </div>
       </form>
+    </div>
     </div>
   );
 };

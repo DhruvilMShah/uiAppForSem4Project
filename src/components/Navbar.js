@@ -5,11 +5,19 @@ import "../css/Navbar.css";
 import { USER_EMAIL } from "../config.js";
 
 const Navbar = () => {
+  const getDisplayName = (email) => {
+    const namePart = email.split("@")[0]; // "john.doe"
+    const name = namePart.split(".")[0];  // "john"
+    return name.charAt(0).toUpperCase() + name.slice(1); // "John"
+  };
+  
+  const displayName = getDisplayName(USER_EMAIL);
+  
   return (
     <nav className="navbar">
       <div className="nav-left">
         <Link to={`/achievements/${USER_EMAIL}`} className="nav-title">
-          My Achievements
+          {displayName}'s Achievements
         </Link>
       </div>
 

@@ -8,7 +8,7 @@ const formatDate = (dateString) => {
   return date.toLocaleDateString("en-US", { day: "numeric", month: "short", year: "numeric" });
 };
 
-const AchievementCard = ({ achievement }) => {
+const AchievementCard = ({ achievement, onEdit, onDelete, isOwner }) => {
   return (
     <div className="achievement-card">
       <h3 className="text-lg font-bold text-gray-800">{achievement.description}</h3>
@@ -28,6 +28,12 @@ const AchievementCard = ({ achievement }) => {
             ))}
           </ul>
         </div>
+      )}
+      {isOwner && (
+        <>
+      <button onClick={() => {console.log("Edit clicked:", achievement); onEdit(achievement)}} className="btn-edit">Edit</button>
+      <button onClick={() => onDelete(achievement.achievementId)} className="btn-delete">Delete</button>
+      </>
       )}
     </div>
   );

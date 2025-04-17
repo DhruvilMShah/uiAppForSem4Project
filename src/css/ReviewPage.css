@@ -4,67 +4,72 @@
     margin: 0 auto;
     padding: 20px;
   } */
-  
-  .filter-and-count {
+
+.filter-and-count {
     display: flex;
     justify-content: space-between; /* Align filter icon left, review count right */
     align-items: center;
     margin-bottom: 20px;
-  }
-  
-  .filter-container {
+}
+
+.filter-container {
     position: relative; /* For absolute positioning of rating panel */
     display: flex;
     align-items: center;
-  }
-  
-  .filter-icon {
+}
+
+.filter-icon {
     font-size: 20px;
-    color: #555;
+    color: #007bff; /* Blue color for consistency with brand */
     cursor: pointer;
     margin-left: 8px;
-  }
-  
-  .filter-icon:hover {
-    color: #000; /* Hover effect */
-  }
-  
-  .rating-panel {
+    transition: color 0.2s ease;
+}
+
+.filter-icon:hover {
+    color: #0056b3; /* Darker blue on hover for better interaction feedback */
+}
+
+.rating-panel {
     position: absolute;
     top: 0; /* Align with filter icon */
     left: 30px; /* Position to the right of the icon */
     background: #fff;
-    border: 1px solid #ccc;
+    border: 1px solid #007bff; /* Blue border to match brand */
     border-radius: 4px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    padding: 10px;
+    padding: 12px;
     z-index: 10; /* Ensure panel is above other content */
-    min-width: 150px; /* Ensure enough space for options */
-  }
-  
-  .rating-checkboxes {
+    min-width: 180px; /* Ensure enough space for options */
+}
+
+.rating-checkboxes {
     display: flex;
     flex-direction: column; /* Stack checkboxes vertically */
-    gap: 8px; /* Space between checkboxes */
-  }
-  
-  .checkbox-label {
+    gap: 10px; /* Slightly larger gap for better spacing */
+}
+
+.checkbox-label {
     display: flex;
     align-items: center;
-    font-size: 14px;
+    font-size: 15px; /* Slightly larger text for better readability */
     cursor: pointer;
-  }
-  
-  .checkbox-label input {
-    margin-right: 8px;
-  }
-  
-  .review-count {
+    color: #333; /* Dark text for clarity */
+}
+
+.checkbox-label input {
+    margin-right: 10px; /* Increase space between checkbox and label */
+}
+
+.review-count {
     font-size: 14px;
     color: #555;
     margin-right: 8px;
-  }
-  
-  h2 {
+}
+
+h2 {
     margin-bottom: 20px;
-  }
+    font-size: 24px; /* Increased font size for emphasis */
+    font-weight: bold;
+    color: #333; /* Consistent dark color for headers */
+}

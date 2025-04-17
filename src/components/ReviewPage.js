@@ -118,7 +118,7 @@ const ReviewPage = () => {
                   />
                   All Ratings
                 </label>
-                {[1, 2, 3, 4, 5].map((value) => (
+                {[5, 4, 3, 2, 1].map((value) => (
                   <label key={value} className="checkbox-label">
                     <input
                       type="checkbox"

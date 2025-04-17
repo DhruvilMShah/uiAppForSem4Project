@@ -30,14 +30,12 @@ const Reports = () => {
   
           return (
             <li key={index} className="report-item">
+              <strong>Requested Date:</strong> {report.requestedDate} &nbsp;&nbsp;&nbsp;
               <strong>Status:</strong> {report.status} <br />
               <strong>File Path:</strong> 
               <a href={report.filePath} target="_blank" rel="noopener noreferrer">
                 {fileName} {/* Show only the filename instead of full path */}
-              </a> 
-              <br />
-              
-              <strong>Requested Date:</strong> {report.requestedDate}
+              </a>
             </li>
           );
         })}
