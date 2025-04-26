@@ -45,9 +45,11 @@ const AddReview = () => {
         navigate("/reviews");
       } else {
         alert("Failed to add review");
+        alert("Failed to add platform review. Please try again in sometime.");
       }
     } catch (error) {
       console.error("Error adding review:", error);
+      alert("Failed to add platform review. Please try again in sometime.");
     }
   };
 

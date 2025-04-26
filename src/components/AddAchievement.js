@@ -74,11 +74,11 @@ const AddAchievement = ({ editData, onClose, refreshAchievements }) => {
         if (onClose) onClose();
         navigate(`/achievements/${USER_EMAIL}`);
       } else {
-        alert("Error saving achievement");
+        alert("Failed to save the achievement. Please try again in sometime.");
       }
     } catch (error) {
       console.error("Error:", error);
-      alert("Failed to connect to backend");
+      alert("Failed to save the achievement. Please try again in sometime.");
     }
   };
   

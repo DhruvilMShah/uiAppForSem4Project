@@ -19,7 +19,7 @@ const AchievementCard = ({ achievement, onEdit, onDelete, isOwner }) => {
 
       <p className="mt-2 text-gray-700"><strong>Category:</strong> {achievement.category}</p>
 
-      {achievement.evidences && achievement.evidences.length > 0 && (
+      {achievement.evidences && achievement.evidences.length > 0 && (achievement.evidences[0]) && (
         <div className="mt-3">
           <h4 className="text-sm font-semibold text-gray-700">Evidences:</h4>
           <ul className="list-disc list-inside text-sm text-gray-600">

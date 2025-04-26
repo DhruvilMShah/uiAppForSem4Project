@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
 import "../css/Reports.css"; // Import CSS
-import { BASE_URL } from "../config.js";
+import { BASE_URL, USER_EMAIL } from "../config.js";
 
 const Reports = () => {
   const [reports, setReports] = useState([]);
-  const userEmail = "john.doe@example.com"; // Replace with logged-in user's email
 
   useEffect(() => {
-    fetch(`${BASE_URL}/reports/${userEmail}`)
+    fetch(`${BASE_URL}/reports/${USER_EMAIL}`)
       .then((res) => res.json())
       .then((data) => setReports(data))
       .catch((err) => console.error("Error fetching reports:", err));

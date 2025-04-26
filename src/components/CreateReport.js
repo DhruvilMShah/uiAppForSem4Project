@@ -25,11 +25,11 @@ const CreateReport = () => {
         alert("Request is accepted. Report will be created in Your Reports section in sometime.");
         navigate("/"); // Redirect to home
       } else {
-        alert("Failed to create report.");
+        alert("Failed to create report request. Please try again in sometime.");
       }
     } catch (error) {
       console.error("Error creating report:", error);
-      alert("Error connecting to server.");
+      alert("Failed to create report request. Please try again in sometime.");
     }
   };
 
