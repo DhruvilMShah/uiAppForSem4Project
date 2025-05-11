@@ -4,7 +4,6 @@ import { useParams } from "react-router-dom";
 import { getAchievements } from '../services/apiService';
 import AchievementList from './AchievementList';
 import AddAchievement from './AddAchievement';
-import { USER_EMAIL } from "../config.js";
 
 //import './AchievementsPage.css';
 
@@ -14,6 +13,7 @@ const AchievementsPage = () => {
   const { email } = useParams();
   const [achievements, setAchievements] = useState([]);
   const [loading, setLoading] = useState(true);
+  const loggedInUser = localStorage.getItem("loggedInUser");
 
   useEffect(() => {
     // Fetch achievements on page load
@@ -35,7 +35,7 @@ const AchievementsPage = () => {
   }, [email]);
   return (
     <div className="achievements-page">
-      <AchievementList achievements={achievements} setAchievements={setAchievements} currentUserEmail={`${USER_EMAIL}`}
+      <AchievementList achievements={achievements} setAchievements={setAchievements} currentUserEmail={loggedInUser}
       onEdit={(achievement) => {
         console.log("Opening modal for edit:", achievement);
         setEditAchievement(achievement);

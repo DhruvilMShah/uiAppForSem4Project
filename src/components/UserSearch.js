@@ -8,6 +8,7 @@ const UserSearch = () => {
     const [query, setQuery] = useState("");
     const [suggestions, setSuggestions] = useState([]);
     const navigate = useNavigate();
+    const token = localStorage.getItem('token');
 
     useEffect(() => {
         const fetchSuggestions = async () => {
@@ -16,7 +17,9 @@ const UserSearch = () => {
                 return;
             }
             try {
-                const response = await axios.get(`${BASE_URL}/api/users/suggestions?query=${query}`);
+                const response = await axios.get(`${BASE_URL}/api/users/suggestions?query=${query}`, {
+                    headers: { "Content-Type": "application/json", 'Authorization': `Bearer ${token}` }
+                    });
                 setSuggestions(response.data);
             } catch (error) {
                 console.error("Error fetching suggestions:", error);

@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../css/CreateReport.css"; // Import CSS
-import { BASE_URL, USER_EMAIL } from "../config.js";
+import { BASE_URL } from "../config.js";
 
 const CreateReport = () => {
+  const loggedInUser = localStorage.getItem("loggedInUser");
+  const token = localStorage.getItem('token');
   const [reportData, setReportData] = useState({
     format: "ECDF",
     fromDate: "",
@@ -15,15 +17,19 @@ const CreateReport = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(`${BASE_URL}/report/${USER_EMAIL}`, {
+      const response = await fetch(`${BASE_URL}/report/${loggedInUser}`, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(reportData),
+        headers: {
+          "Content-Type": "application/json",
+          'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify(reportData)
       });
+      console.log("reponse is: " + response.body)
 
       if (response.status === 202) {
         alert("Request is accepted. Report will be created in Your Reports section in sometime.");
-        navigate("/"); // Redirect to home
+        navigate(`/achievements/${loggedInUser}`); // Redirect to home
       } else {
         alert("Failed to create report request. Please try again in sometime.");
       }
@@ -64,7 +70,7 @@ const CreateReport = () => {
 
         <div className="button-group">
           <button type="submit" className="report-btn">Create</button>
-          <button type="button" className="cancel-btn" onClick={() => navigate("/")}>Cancel</button>
+          <button type="button" className="cancel-btn" onClick={() => navigate(`/achievements/${loggedInUser}`)}>Cancel</button>
         </div>
       </form>
     </div>

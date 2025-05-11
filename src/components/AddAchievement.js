@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "../css/AddAchievement.css";
-import { BASE_URL, USER_EMAIL } from "../config.js";
+import { BASE_URL } from "../config.js";
 
 const AddAchievement = ({ editData, onClose, refreshAchievements }) => {
+  const token = localStorage.getItem('token');
   const navigate = useNavigate();
+  const loggedInUser = localStorage.getItem("loggedInUser");
   const [formData, setFormData] = useState(() => {
     if (editData) {
       console.log("Initial editData.toDate:", editData?.toDate);
@@ -18,7 +20,7 @@ const AddAchievement = ({ editData, onClose, refreshAchievements }) => {
       };
     } else {
       return {
-        email: `${USER_EMAIL}`, // only used for add
+        email: loggedInUser, // only used for add
         fromDate: "",
         toDate: "",
         description: "",
@@ -64,7 +66,7 @@ const AddAchievement = ({ editData, onClose, refreshAchievements }) => {
   
       const response = await fetch(url, {
         method,
-        headers: { "Content-Type": "application/json" },
+        headers: { "Content-Type": "application/json", 'Authorization': `Bearer ${token}` },
         body: JSON.stringify(formData),
       });
   
@@ -72,7 +74,7 @@ const AddAchievement = ({ editData, onClose, refreshAchievements }) => {
         alert(`Achievement ${editData ? "updated" : "added"} successfully!`);
         if (refreshAchievements) refreshAchievements(); 
         if (onClose) onClose();
-        navigate(`/achievements/${USER_EMAIL}`);
+        navigate(`/achievements/${loggedInUser}`);
       } else {
         alert("Failed to save the achievement. Please try again in sometime.");
       }
@@ -166,7 +168,7 @@ const AddAchievement = ({ editData, onClose, refreshAchievements }) => {
               if (onClose) {
                 onClose(); // Close modal in edit/add mode
               } else {
-                navigate(`/achievements/${USER_EMAIL}`); // fallback
+                navigate(`/achievements/${loggedInUser}`); // fallback
               }
             }}
             className="cancel-btn"

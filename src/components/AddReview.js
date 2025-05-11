@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../css/AddReview.css";
-import { BASE_URL, USER_EMAIL } from "../config.js";
+import { BASE_URL } from "../config.js";
 
 const AddReview = () => {
+  const loggedInUser = localStorage.getItem("loggedInUser");
+  const token = localStorage.getItem('token');
   const [reviewData, setReviewData] = useState({
     rating: 1,
     description: "",
@@ -28,15 +30,13 @@ const AddReview = () => {
     e.preventDefault();
     const reviewToSend = {
       ...reviewData,
-      email: reviewData.anonymity ? null : `${USER_EMAIL}`,
+      email: reviewData.anonymity ? null : loggedInUser,
     };
 
     try {
       const response = await fetch(`${BASE_URL}/review`, {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json", 'Authorization': `Bearer ${token}` },
         body: JSON.stringify(reviewToSend),
       });
 

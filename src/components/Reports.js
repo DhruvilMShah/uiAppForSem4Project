@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from "react";
 import "../css/Reports.css"; // Import CSS
-import { BASE_URL, USER_EMAIL } from "../config.js";
+import { BASE_URL } from "../config.js";
 
 const Reports = () => {
+  const loggedInUser = localStorage.getItem("loggedInUser");
+  const token = localStorage.getItem('token');
   const [reports, setReports] = useState([]);
 
   useEffect(() => {
-    fetch(`${BASE_URL}/reports/${USER_EMAIL}`)
+    fetch(`${BASE_URL}/reports/${loggedInUser}`, {
+          headers: { 'Authorization': `Bearer ${token}` },
+        })
       .then((res) => res.json())
       .then((data) => setReports(data))
       .catch((err) => console.error("Error fetching reports:", err));

@@ -7,21 +7,47 @@ import AddReview from "./components/AddReview";
 import Navbar from "./components/Navbar";
 import Reports from "./components/Reports";
 import CreateReport from "./components/CreateReport";
-import { USER_EMAIL } from "./config.js";
+import Login from "./components/Login";
+import Register from "./components/Register";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+const PrivateRoute = ({ children }) => {
+  const token = localStorage.getItem("token");
+  return token ? children : <Navigate to="/login" replace />;
+};
 
 function App() {
   return (
     <Router>
-      <Navbar /> {/* Navbar is always visible */}
+      <Navbar />
+      <ToastContainer position="top-center" />
       <div className="p-4">
         <Routes>
-          <Route path="/" element={<Navigate to={`/achievements/${USER_EMAIL}`} replace />} />
-          <Route path="/achievements/:email" element={<AchievementPage />} />
-          <Route path="/add-achievement" element={<AddAchievement />} />
-          <Route path="/reviews" element={<ReviewPage />} />
-          <Route path="/add-review" element={<AddReview />} />
-          <Route path="/reports" element={<Reports />} />
-          <Route path="/create-report" element={<CreateReport />} />
+          {/* Public Routes */}
+          <Route path="/" element={<Login />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+
+          {/* Private Routes */}
+          <Route path="/achievements/:email" element={
+            <PrivateRoute><AchievementPage /></PrivateRoute>
+          } />
+          <Route path="/add-achievement" element={
+            <PrivateRoute><AddAchievement /></PrivateRoute>
+          } />
+          <Route path="/reviews" element={
+            <PrivateRoute><ReviewPage /></PrivateRoute>
+          } />
+          <Route path="/add-review" element={
+            <PrivateRoute><AddReview /></PrivateRoute>
+          } />
+          <Route path="/reports" element={
+            <PrivateRoute><Reports /></PrivateRoute>
+          } />
+          <Route path="/create-report" element={
+            <PrivateRoute><CreateReport /></PrivateRoute>
+          } />
         </Routes>
       </div>
     </Router>
